@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char input[100],  output[100];
+    
+
+    printf("Bot: Hi, I'm a chatbot. How can I help you today?\n");
+
+    while (1)
+    {
+        printf("You: ");
+        fgets(input, sizeof(input), stdin);
+
+        if (strcmp(input, "exit\n") == 0)
+        {
+            break;
+        }
+
+        if (strstr(input, "hello") != NULL || strstr(input, "hi") != NULL)
+        {
+            strcpy(output, "Hello, nice to meet you!");
+        }
+
+        else if (strstr(input, "what is") != NULL)
+        {
+           
+            if (strstr(input, "artificial intelligence") != NULL)
+            {
+                strcpy(output, "Artificial intelligence is the simulation of human intelligence processes by machines, especially computer systems.");
+            }
+            
+            else if (strstr(input, "the difference between int and float data types in C") != NULL)
+            {
+                strcpy(output,   "The int data type is used for integer values, while the float data type is used for decimal values.");
+            }
+            else if (strstr(input, "the difference between ++i and i++ in C") != NULL)
+            {
+                strcpy(output, "The difference between ++i and i++ in C is that ++i increments the value of i before it is used in an expression, while i++ increments the value of i after it is used in an expression.");
+            }
+            else if (strstr(input, "the syntax for a for loop in C") != NULL)
+            {
+                strcpy(output, "The syntax for a for loop in C is as follows: for (initialization; condition; increment/decrement) { // loop body }");
+            }
+            else if (strstr(input, "a pointer in C and how is it used?") != NULL)
+            {
+                strcpy(output, "A pointer in C is a variable that stores the memory address of another variable. It is used to manipulate and access the value of the variable it points to.");
+            }
+            else
+            {
+                strcpy(output, "I'm not sure what you're asking. Could you please rephrase the question?");
+            }
+        }
+        else if (strstr(input, "what are") != NULL)
+        {
+            if (strstr(input, "algorithms") != NULL)
+            {
+                strcpy(output, "An algorithm is a set of well-defined instructions for solving a specific problem or accomplishing a specific task.");
+            }
+            else if (strstr(input, "flowcharts") != NULL)
+            {
+                strcpy(output, "A flowchart is a diagram that shows an overview of a program.");
+            }
+            else
+            {
+                strcpy(output, "I'm not sure what you're asking. Could you please rephrase the question?");
+            }
+        }
+        else if (strstr(input, "how do") != NULL)
+        {
+            if (strstr(input, "you declare and initialize an array in C?") != NULL)
+            {
+                strcpy(output, "To declare and initialize an array in C, you use the following syntax: data_type array_name[array_size] = {value1, value2, value3, ...};");
+            }
+
+            else
+            {
+                strcpy(output, "I'm not sure what you're asking. Could you please rephrase the question?");
+            }
+        }
+        else
+        {
+            strcpy(output, "I'm sorry, I don't understand what you're saying.");
+        }
+        printf("Bot: %s\n", output);
+    }
+
+    printf("Bot: Goodbye!\n");
+    return 0;
+}
